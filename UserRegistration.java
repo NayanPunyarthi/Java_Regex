@@ -1,6 +1,6 @@
 
-//Valid PhoneNumber
 
+// Password validation
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -65,6 +65,19 @@ public class UserRegistration {
             System.out.println("Given phone number is not valid");
         }
     }
+    void checkPassword() {
+        System.out.println("Enter Your password");
+        String password = scan.next();
+
+        String Regex = "^\\w{8}\\w+$";
+
+        boolean result = password.matches(Regex);
+        if (result) {
+            System.out.println("Given password is valid");
+        } else {
+            System.out.println("Given password is not valid");
+        }
+    }
 }
 
 
@@ -72,6 +85,6 @@ public class UserRegistration {
 class Main{
     public static void main(String[] args) {
         UserRegistration user = new UserRegistration();
-        user.checkPhone();
+        user.checkPassword();
     }
 }
