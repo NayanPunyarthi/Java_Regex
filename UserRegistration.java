@@ -1,7 +1,4 @@
-
-
-
-// Password Upper Case
+//Number In Password
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -71,7 +68,7 @@ public class UserRegistration {
         System.out.println("Enter Your password");
         String password = scan.next();
 
-        String Regex = "^(?=.*[A-Z])\\w{8}\\w+$";
+        String Regex = "^(?=.*[A-Z])(?=.*[0-9])\\w{8}\\w+$";
 
         boolean result = password.matches(Regex);
         if (result) {
