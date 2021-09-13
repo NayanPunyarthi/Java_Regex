@@ -1,4 +1,4 @@
-//Number In Password
+//All Email
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -50,6 +50,7 @@ public class UserRegistration {
             System.out.println("Given email-id is not valid");
         }
     }
+
     void checkPhone() {
         System.out.println("Enter Your phone number");
         String phoneNo = scan.next();
@@ -68,13 +69,23 @@ public class UserRegistration {
         System.out.println("Enter Your password");
         String password = scan.next();
 
-        String Regex = "^(?=.*[A-Z])(?=.*[0-9])\\w{8}\\w+$";
+        String Regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!#%*?&])[A-Za-z\\d@$!#%*?&]{8,}$";
 
         boolean result = password.matches(Regex);
         if (result) {
             System.out.println("Given password is valid");
         } else {
             System.out.println("Given password is not valid");
+        }
+    }
+
+    void checkEmailList() {
+        String emailArray[] = {"punyarthi.nayan@gmail.com","punyarthinayan@gmail.com","punyarthinayan16@gmail.com"};
+
+        String emailRegex = "^[a-z]{3}[a-zA-Z0-9+_.-]+@[a-z.]+$";
+        for (String email: emailArray) {
+            boolean result = email.matches(emailRegex);
+            System.out.println(email+" : "+result);
         }
     }
 }
@@ -84,6 +95,6 @@ public class UserRegistration {
 class Main{
     public static void main(String[] args) {
         UserRegistration user = new UserRegistration();
-        user.checkPassword();
+        user.checkEmailList();
     }
 }
