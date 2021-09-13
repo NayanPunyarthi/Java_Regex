@@ -1,6 +1,7 @@
 
 
-// Password validation
+
+// Password Upper Case
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -65,11 +66,12 @@ public class UserRegistration {
             System.out.println("Given phone number is not valid");
         }
     }
+
     void checkPassword() {
         System.out.println("Enter Your password");
         String password = scan.next();
 
-        String Regex = "^\\w{8}\\w+$";
+        String Regex = "^(?=.*[A-Z])\\w{8}\\w+$";
 
         boolean result = password.matches(Regex);
         if (result) {
